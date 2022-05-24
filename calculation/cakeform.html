@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+    <title>Cake Form</title>
+    <script type="text/javascript" src="js/formcalculations.js"></script>
+    <link href="styles/cakeform.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload='hideTotal()'>
+    <div id="wrap">
+        <form action="" id="cakeform" onsubmit="return false;">
+        <div>
+            <div class="cont_order">
+               <fieldset>
+                <legend>Make your coffee</legend>
+                <label >커피 종류 선택</label><br/>
+                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round6" onclick="calculateTotal()" />아메리카노(L) ($2) </label><br/>
+                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round8" onclick="calculateTotal()" />카페라떼(L) ($2.5)</label><br/>
+                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round10" onclick="calculateTotal()" />카라멜 마끼아또(L) ($2.5)</label><br/>
+                <label class='radiolabel'><input type="radio"  name="selectedcake" value="Round12" onclick="calculateTotal()" />카푸치노(L) ($2.5)</label><br/>
+                <br/>
+                <label >원두선택하기</label>
+         
+                <select id="filling" name='filling' onchange="calculateTotal()">
+                    <option value="None">일반원두</option>
+                    <option value="Lemon">케냐AA($1)</option>
+                    <option value="Custard">과테말라 안티구아($2)</option>
+                    <option value="Fudge">브라질 산토스($1)</option>
+                    <option value="Mocha">코스타리카 따라주($1)</option>
+                    <option value="Raspberry">콜럼비아 수프레모($2)</option>
+                   </select>
+                <br/>
+                <p>
+                <label for='includecandles' class="inlinelabel">휘핑크림 추가하기($0)</label>
+               <input type="checkbox" id="includecandles" name='includecandles' onclick="calculateTotal()" />
+               </p>
+               
+                <p>
+                <label class="inlinelabel" for='includeinscription'>기타 추가사항 요청하기($0)</label>
+                <input type="checkbox" id="includeinscription" name="includeinscription" onclick="calculateTotal()" />
+                <input type="text"  id="theinscription" name="theinscription" value="추가사항 요청란"  />
+                </p>
+                <div id="totalPrice"></div>
+                
+                </fieldset>
+            </div>
+            
+        	<div class="cont_details">
+            	<fieldset>
+                <legend>주문자 정보</legend>
+                <label for='name'>이름</label>
+                <input type="text" id="name" name='name' />
+                <br/>
+                <label for='phonenumber'>전화번호</label>
+                <input type="text"  id="phonenumber" name='phonenumber'/>
+                <br/>
+                <label for='address'>픽업장소</label>
+                <input type="text" id="address" name='address' />
+                <br/>
+                </fieldset>
+            </div>
+            <input type='submit' id='submit' value='전송' onclick="calculateTotal()" />
+        </div>  
+       </form>
+	</div><!--End of wrap-->
+
+</body>
+</html>
